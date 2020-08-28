@@ -1,0 +1,13 @@
+package SpartanSys;
+import java.util.Date;
+
+public class teste2 {
+
+	public static void main(String[] args) {
+
+		Date data = new Date(1);
+		
+		System.out.println(data);
+	}
+
+}

@@ -1,0 +1,15 @@
+package SpartanSys;
+import java.util.Scanner;
+
+public class TESTES {
+
+	public static void main(String[] args) {
+
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Qual seu nome: ");
+		
+		
+	}
+
+}

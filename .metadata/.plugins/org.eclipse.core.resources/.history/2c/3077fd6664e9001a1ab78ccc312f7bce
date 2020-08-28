@@ -1,0 +1,234 @@
+package SpartanSys;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+public class SpartanSys {
+
+	public static void main(String[] args) {
+
+		Scanner inputSelecionar = new Scanner(System.in);
+
+		System.out.print("[1] - Cadastrar \n" + "[2] - Consultar Cadastro\n -> ");
+		byte selecionarOpcao = inputSelecionar.nextByte();
+
+		switch (selecionarOpcao) {
+		case 1:
+			Scanner inputCadastro = new Scanner(System.in);
+
+			double desconto = 0.0;
+			double valorTotal = 0.0;
+			final String hotelNome = "Quality Hotel";
+
+			// NOME, CPF, RG, FORMA DE PAGAMENTO
+
+			System.out.print("Insira seu nome completo: ");
+			String nomeCompleto = inputCadastro.nextLine();
+
+			System.out.print("Insira seu CPF: ");
+			String CPF = inputCadastro.nextLine();
+
+			System.out.print("Insira seu RG: ");
+			String RG = inputCadastro.nextLine();
+
+			System.out.print("Insira a forma de pagamento" + "\n [0] = Cartão de Crédito" + "\n [1] = Cartão de Débito"
+					+ "\n [3] = Dinheiro" + "\n [4] = Bitcoin\n -> ");
+			byte pagamento = inputCadastro.nextByte();
+
+			while (pagamento != 0 && pagamento != 1 && pagamento != 2 && pagamento != 3 && pagamento != 4) {
+				System.out.print("Insira a forma de pagamento" + "\n [0] = Cartão de Crédito"
+						+ "\n [1] = Cartão de Débito" + "\n [3] = Dinheiro" + "\n [4] = Bitcoin\n -> ");
+				pagamento = inputCadastro.nextByte();
+			}
+
+			// PAGAMENTOS EM DINHEIRO E EM BITCOIN
+
+			switch (pagamento) {
+			case 3:
+				desconto = 0.1;
+				valorTotal = (double) (valorTotal - (valorTotal * desconto));
+				break;
+			case 4:
+				desconto = 0.15;
+				valorTotal = (double) (valorTotal - (valorTotal * desconto));
+				break;
+			}
+
+			// QUARTOS DISPONIVEIS
+
+			int quartoEconomico = 4; // diaria R$40
+			int diariaEconomico = 40;
+			int quartoExecutivo = 2; // diaria R$100
+			int diariaExecutivo = 100;
+			int suiteMaster = 1; // diaria R$350
+			int diariaSuiteMaster = 350;
+			final int quartosTotais = quartoEconomico + quartoExecutivo + suiteMaster;
+
+			boolean isQuartoDisponivel = false;
+
+			if (quartosTotais > 0) {
+				isQuartoDisponivel = true;
+				if (isQuartoDisponivel) {
+					System.out.println(
+							"Temos " + quartosTotais + " quartos disponíveis: \n" + "Número de Quartos Econômicos = [ "
+									+ quartoEconomico + " ]\n" + "Número de Quartos Executivos = [ " + quartoExecutivo
+									+ " ]\n" + "Número de Suítes Master = [ " + suiteMaster + " ]");
+
+					System.out.println("Em qual quarto o(a) Sr(a)." + nomeCompleto + " gostaria de se hospedar:\n");
+					System.out.print("Para selecionar o 'Quarto Econômico', digite [ 1 ]\n"
+							+ "Para selecionar o 'Quarto Executivo', digite [ 2 ]\n"
+							+ "Para selecionar a 'Suíte Master', digite [ 3 ]\n -> ");
+					byte quartoDesejado = inputCadastro.nextByte();
+
+					switch (quartoDesejado) {
+					case 1:
+						System.out.println("Quarto Econômico selecionado!");
+						System.out.println("A diária do Quarto Econômico é de: R$" + diariaEconomico);
+						Date date = new Date();
+						Scanner input = new Scanner(System.in);
+						Calendar data = Calendar.getInstance();
+
+						int hora = data.get(Calendar.HOUR_OF_DAY);
+
+						if (hora >= 6 && hora <= 12) {
+							System.out.println("+---------------------+");
+							System.out.println("|                     |");
+							System.out.println("|       BOA DIA       |");
+							System.out.println("|                     |");
+							System.out.println("+---------------------+");
+							System.out.println();
+						} else if (hora > 12 && hora <= 18) {
+							System.out.println("+---------------------+");
+							System.out.println("|                     |");
+							System.out.println("|      BOA TARDE      |");
+							System.out.println("|                     |");
+							System.out.println("+---------------------+");
+							System.out.println();
+						} else {
+							System.out.println("+---------------------+");
+							System.out.println("|                     |");
+							System.out.println("|      BOA NOITE      |");
+							System.out.println("|                     |");
+							System.out.println("+---------------------+");
+							System.out.println();
+						}
+
+						int anoAtual = 1900 + date.getYear();
+						int mesAtual = 1 + date.getMonth();
+						int diaAtual = date.getDate();
+
+						LocalDate localDate = LocalDate.of(anoAtual, mesAtual, diaAtual); // anoAtual, mesAtual,
+																							// diaAtual
+						System.out.println(localDate + "\n");
+
+						System.out.println("....................\n");
+
+						System.out.print("Dia da entrada: ");
+						int inputDiaEntrada = input.nextInt();
+						int diaEntrada = inputDiaEntrada;
+
+						System.out.print("Mês da entrada: ");
+						int inputMesEntrada = input.nextInt();
+						int mesEntrada = inputMesEntrada;
+
+						System.out.print("Ano da entrada: ");
+						int inputAnoEntrada = input.nextInt();
+						int anoEntrada = inputAnoEntrada;
+
+						System.out.println();
+
+						System.out.print("Dia da saída: ");
+						int inputDiaSaida = input.nextInt();
+						int diaSaida = inputDiaSaida;
+
+						System.out.print("Mês da saída: ");
+						int inputMesSaida = input.nextInt();
+						int mesSaida = inputMesSaida;
+
+						System.out.print("Ano da saída: ");
+						int inputAnoSaida = input.nextInt();
+						int anoSaida = inputAnoSaida;
+
+						while (diaEntrada <= 0 || diaEntrada > 31 || mesEntrada <= 0 || mesEntrada > 12 || diaSaida <= 0 // 31
+								|| diaSaida > 31 || mesSaida <= 0 || mesSaida > 12 || anoEntrada > anoSaida) {
+
+							System.out.println("....................");
+
+							System.out.println("Insira uma data válida!");
+
+							System.out.print("Dia da entrada: ");
+							inputDiaEntrada = input.nextInt();
+							diaEntrada = inputDiaEntrada;
+
+							System.out.print("Mês da entrada: ");
+							inputMesEntrada = input.nextInt();
+							mesEntrada = inputMesEntrada;
+
+							System.out.print("Ano da entrada: ");
+							inputAnoEntrada = input.nextInt();
+							anoEntrada = inputAnoEntrada;
+
+							System.out.print("Dia da saída: ");
+							inputDiaSaida = input.nextInt();
+							diaSaida = inputDiaSaida;
+
+							System.out.print("Mês da saída: ");
+							inputMesSaida = input.nextInt();
+							mesSaida = inputMesSaida;
+
+							System.out.print("Ano da saída: ");
+							inputAnoSaida = input.nextInt();
+							anoSaida = inputAnoSaida;
+
+							System.out.println("....................");
+						}
+
+						LocalDate dataEntrada = LocalDate.of(anoEntrada, mesEntrada, diaEntrada);
+						LocalDate dataSaida = LocalDate.of(anoSaida, mesSaida, diaSaida);
+
+						long diasHospedado = ChronoUnit.DAYS.between(dataEntrada, dataSaida);
+
+						System.out.println();
+
+						valorTotal = diasHospedado * diariaEconomico;
+
+						System.out.println("Você ficará " + diasHospedado + " dias hospedado no " + hotelNome
+								+ " e pagará um total de R$" + valorTotal);
+						System.out.println("\n....................");
+
+						break;
+					case 2:
+						System.out.println("Quarto Executivo selecionado!");
+						System.out.println("A diária do Quarto Executivo é de: R$" + diariaExecutivo
+								+ ", você irá ficar hospedado em nosso hotel por X dias e pagará "); // JODA TIME
+						break;
+					case 3:
+						System.out.println("Suíte Master selecionada!");
+						System.out.println("A diária da Suíte Master é de: R$" + diariaSuiteMaster
+								+ ", você irá ficar hospedado em nosso hotel por X dias e pagará "); // JODA TIME
+						break;
+					}
+
+				}
+			} else {
+				System.out.println("Sr(a)." + nomeCompleto + ", sinto lhe informar que a " + hotelNome
+						+ " está sem quartos disponíveis.");
+				while (!isQuartoDisponivel) {
+					break;
+				}
+			}
+
+			inputCadastro.close();
+			break;
+
+		case 2:
+			System.out.println("A SER IMPLEMENTADO");
+			break;
+		}
+	}
+
+}

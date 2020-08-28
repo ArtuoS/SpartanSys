@@ -1,0 +1,12 @@
+package SpartanSys;
+
+import java.util.Scanner;
+
+public class HospedeRegistro {
+
+	Scanner input = new Scanner(System.in);
+
+	double desconto = 0.0;
+	double valorTotal = 10000.0;
+	
+}

@@ -1,0 +1,73 @@
+package SpartanSys;
+
+import java.util.Scanner;
+
+public class SpartanSys {
+
+	public static void main(String[] args) {
+
+		Scanner input = new Scanner(System.in);
+
+		double desconto = 0.0;
+		double valorTotal = 10000.0;
+		String hotelNome = "Quality Hotel";
+
+		System.out.print("Insira seu nome completo: ");
+		String nomeCompleto = input.nextLine();
+
+		System.out.print("Insira seu CPF: ");
+		String CPF = input.nextLine();
+
+		System.out.print("Insira seu RG: ");
+		String RG = input.nextLine();
+
+		System.out.print("Insira seu telefone: ");
+		String telefone = input.nextLine();
+
+		System.out.print("Insira a forma de pagamento" + "\n [0] = Cartão de Crédito" + "\n [1] = Cartão de Débito"
+				+ "\n [3] = Dinheiro" + "\n [4] = Bitcoin\n -> ");
+		byte pagamento = input.nextByte();
+
+		while (pagamento != 0 && pagamento != 1 && pagamento != 2 && pagamento != 3 && pagamento != 4) {
+			System.out.print("Insira a forma de pagamento" + "\n [0] = Cartão de Crédito" + "\n [1] = Cartão de Débito"
+					+ "\n [3] = Dinheiro" + "\n [4] = Bitcoin -> ");
+			pagamento = input.nextByte();
+		}
+
+		// PAGAMENTOS EM DINHEIRO E EM BITCOIN
+		if (pagamento == 3) {
+			desconto = 0.1; // 10% de desconto
+			valorTotal = (double) (valorTotal - (valorTotal * desconto));
+		} else if (pagamento == 4) {
+			desconto = 0.15; // 15% de desconto
+			valorTotal = (double) (valorTotal - (valorTotal * desconto));
+		}
+
+		// QUARTOS DISPONIVEIS
+
+		int quartoEconomico = 0;
+		int quartoExecutivo = 0;
+		int suiteMaster = 0;
+		int quartosTotais = quartoEconomico + quartoExecutivo + suiteMaster;
+
+		boolean isQuartoDisponivel = false;
+
+		if (quartosTotais > 0) {
+			isQuartoDisponivel = true;
+			if (isQuartoDisponivel) {
+				System.out.println("Temos " + quartosTotais + " quartos disponíveis: \n" + "Quartos Econômicos - [ "
+						+ quartoEconomico + " ]\n" + "Quartos Executivos - [ " + quartoExecutivo + " ]\n"
+						+ "Suite Master - [ " + suiteMaster + " ]");
+
+				System.out.println("Qual quarto o(a) Sr(a)." + nomeCompleto + " irá se hospedar:");
+			}
+		} else {
+			System.out.println("Sr(a)." + nomeCompleto + ", sinto lhe informar que a " + hotelNome
+					+ " está sem quartos disponíveis.");
+		}
+
+		input.close();
+
+	}
+
+}

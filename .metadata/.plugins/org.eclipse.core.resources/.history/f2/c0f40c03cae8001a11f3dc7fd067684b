@@ -1,0 +1,38 @@
+package SpartanSys;
+
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.temporal.ChronoUnit;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Clairton Luz
+ */
+public class Exemplo {
+
+	public static void main(String[] args) {
+		// Cria um Objeto LocalDate com a data atual.
+//		LocalDate hoje = LocalDate.now();
+
+		// Cria um Objeto LocalDate com a data 26/09/2020.
+			
+		LocalDate outraData = LocalDate.of(2020, Month.DECEMBER, 30);
+		LocalDate dataInicial = LocalDate.of(2021, monthA, 2);
+
+		// Calcula a diferença de dias entre as duas datas
+		long diferencaEmDias = ChronoUnit.DAYS.between(dataInicial, outraData);
+		// Calcula a diferença de meses entre as duas datas
+		long diferencaEmMes = ChronoUnit.MONTHS.between(dataInicial, outraData);
+		// Calcula a diferença de anos entre as duas datas
+		long diferencaEmAnos = ChronoUnit.YEARS.between(dataInicial, outraData);
+
+		// Exibe a diferença em dias entre as datas
+		System.out.println("Diferença em dias entre " + dataInicial + " e " + outraData + " = " + (diferencaEmDias - (diferencaEmDias * 2)));
+		// Exibe a diferença em meses entre as datas
+		System.out.println("Diferença em meses entre " + dataInicial + " e " + outraData + " = " + diferencaEmMes);
+		// Exibe a diferença em anos entre as datas
+		System.out.println("Diferença em anos entre " + dataInicial + " e " + outraData + " = " + diferencaEmAnos);
+	}
+
+}

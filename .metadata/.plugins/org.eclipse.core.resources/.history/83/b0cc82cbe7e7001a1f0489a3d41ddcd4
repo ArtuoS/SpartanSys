@@ -1,0 +1,9 @@
+package SpartanSys;
+
+public class CadastroHospedes {
+	
+	public String Hospede(String nome, String CPF, String RG) {
+//		return nome + CPF + RG;
+	}
+
+}
