@@ -1,7 +1,9 @@
 package SpartanSys;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
@@ -280,7 +282,7 @@ public class SpartanSys {
 
 						System.out.println();
 
-						valorTotal = diasHospedado * diariaExecutivo;
+						valorTotal = diasHospedado * diariaEconomico;
 
 						System.out.println("Você ficará " + diasHospedado + " dias hospedado no " + hotelNome
 								+ " e pagará um total de R$" + valorTotal);
@@ -360,7 +362,7 @@ public class SpartanSys {
 
 						System.out.println();
 
-						valorTotal = diasHospedado * diariaSuiteMaster;
+						valorTotal = diasHospedado * diariaEconomico;
 
 						System.out.println("Você ficará " + diasHospedado + " dias hospedado no " + hotelNome
 								+ " e pagará um total de R$" + valorTotal);
