@@ -52,6 +52,7 @@ public class SistemaDatas {
 
 		System.out.print("Dia da entrada: ");
 		int inputDiaEntrada = input.nextInt();
+		int diaEntrada = inputDiaEntrada;
 
 		System.out.print("Mês da entrada: ");
 		int inputMesEntrada = input.nextInt();
@@ -75,7 +76,7 @@ public class SistemaDatas {
 		int inputAnoSaida = input.nextInt();
 		int anoSaida = inputAnoSaida;
 
-		while (inputDiaEntrada <= 0 || inputDiaEntrada > 31 || mesEntrada <= 0 || mesEntrada > 12 || diaSaida <= 0 // 31
+		while (diaEntrada <= 0 || diaEntrada > 31 || mesEntrada <= 0 || mesEntrada > 12 || diaSaida <= 0 // 31
 				|| diaSaida > 31 || mesSaida <= 0 || mesSaida > 12 || anoEntrada > anoSaida) {
 
 			System.out.println("....................");
@@ -84,6 +85,7 @@ public class SistemaDatas {
 
 			System.out.print("Dia da entrada: ");
 			inputDiaEntrada = input.nextInt();
+			diaEntrada = inputDiaEntrada;
 
 			System.out.print("Mês da entrada: ");
 			inputMesEntrada = input.nextInt();
@@ -108,7 +110,7 @@ public class SistemaDatas {
 			System.out.println("....................");
 		}
 
-		LocalDate dataEntrada = LocalDate.of(anoEntrada, mesEntrada, inputDiaEntrada);
+		LocalDate dataEntrada = LocalDate.of(anoEntrada, mesEntrada, diaEntrada);
 		LocalDate dataSaida = LocalDate.of(anoSaida, mesSaida, diaSaida);
 
 		long diasHospedado = ChronoUnit.DAYS.between(dataEntrada, dataSaida);

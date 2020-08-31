@@ -75,7 +75,7 @@ public class SistemaDatas {
 		int inputAnoSaida = input.nextInt();
 		int anoSaida = inputAnoSaida;
 
-		while (inputDiaEntrada <= 0 || inputDiaEntrada > 31 || mesEntrada <= 0 || mesEntrada > 12 || diaSaida <= 0 // 31
+		while (diaEntrada <= 0 || diaEntrada > 31 || mesEntrada <= 0 || mesEntrada > 12 || diaSaida <= 0 // 31
 				|| diaSaida > 31 || mesSaida <= 0 || mesSaida > 12 || anoEntrada > anoSaida) {
 
 			System.out.println("....................");

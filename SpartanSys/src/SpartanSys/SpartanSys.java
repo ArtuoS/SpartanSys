@@ -9,7 +9,8 @@ public class SpartanSys {
 
 	public static void main(String[] args) {
 
-		Scanner inputSelecionar = new Scanner(System.in); // input para selecionar cadastrar ou consultar novo cliente
+		Scanner inputSelecionar = new Scanner(System.in); // input para selecionar cadastrar ou consultar novo
+															// cliente
 		Scanner input = new Scanner(System.in); // input dos dias/mes/anos de entrada e saida
 
 		Calendar data = Calendar.getInstance();
@@ -112,262 +113,92 @@ public class SpartanSys {
 
 					long diasHospedado;
 					int inputDiaEntrada;
-					int diaEntrada;
 					int inputMesEntrada;
-					int mesEntrada;
 					int inputAnoEntrada;
-					int anoEntrada;
 					int inputDiaSaida;
-					int diaSaida;
 					int inputMesSaida;
-					int mesSaida;
 					int inputAnoSaida;
-					int anoSaida;
 					LocalDate dataEntrada;
 					LocalDate dataSaida;
 
-					switch (quartoDesejado) {
-					case 1:
-						System.out.println("Quarto Econômico selecionado!");
-						System.out.println("A diária do Quarto Econômico é de: R$" + diariaEconomico);
+					System.out.println("Quarto Econômico selecionado!");
+					System.out.println("A diária do Quarto Econômico é de: R$" + diariaEconomico);
 
-						System.out.println("....................\n");
+					System.out.println("....................\n");
+
+					System.out.print("Dia da entrada: ");
+					inputDiaEntrada = input.nextInt();
+
+					System.out.print("Mês da entrada: ");
+					inputMesEntrada = input.nextInt();
+
+					System.out.print("Ano da entrada: ");
+					inputAnoEntrada = input.nextInt();
+
+					System.out.println();
+
+					System.out.print("Dia da saída: ");
+					inputDiaSaida = input.nextInt();
+
+					System.out.print("Mês da saída: ");
+					inputMesSaida = input.nextInt();
+
+					System.out.print("Ano da saída: ");
+					inputAnoSaida = input.nextInt();
+
+					while (inputDiaEntrada <= 0 || inputDiaEntrada > 31 || inputMesEntrada <= 0 || inputMesEntrada > 12
+							|| inputDiaSaida <= 0 // 31
+							|| inputDiaSaida > 31 || inputMesSaida <= 0 || inputMesSaida > 12
+							|| inputAnoEntrada > inputAnoSaida) {
+
+						System.out.println("....................");
+
+						System.out.println("Insira uma data válida!");
 
 						System.out.print("Dia da entrada: ");
 						inputDiaEntrada = input.nextInt();
-						diaEntrada = inputDiaEntrada;
 
 						System.out.print("Mês da entrada: ");
 						inputMesEntrada = input.nextInt();
-						mesEntrada = inputMesEntrada;
 
 						System.out.print("Ano da entrada: ");
 						inputAnoEntrada = input.nextInt();
-						anoEntrada = inputAnoEntrada;
 
 						System.out.println();
 
 						System.out.print("Dia da saída: ");
 						inputDiaSaida = input.nextInt();
-						diaSaida = inputDiaSaida;
 
 						System.out.print("Mês da saída: ");
 						inputMesSaida = input.nextInt();
-						mesSaida = inputMesSaida;
 
 						System.out.print("Ano da saída: ");
 						inputAnoSaida = input.nextInt();
-						anoSaida = inputAnoSaida;
 
-						while (diaEntrada <= 0 || diaEntrada > 31 || mesEntrada <= 0 || mesEntrada > 12 || diaSaida <= 0 // 31
-								|| diaSaida > 31 || mesSaida <= 0 || mesSaida > 12 || anoEntrada > anoSaida) {
-
-							System.out.println("....................");
-
-							System.out.println("Insira uma data válida!");
-
-							System.out.print("Dia da entrada: ");
-							inputDiaEntrada = input.nextInt();
-							diaEntrada = inputDiaEntrada;
-
-							System.out.print("Mês da entrada: ");
-							inputMesEntrada = input.nextInt();
-							mesEntrada = inputMesEntrada;
-
-							System.out.print("Ano da entrada: ");
-							inputAnoEntrada = input.nextInt();
-							anoEntrada = inputAnoEntrada;
-
-							System.out.print("Dia da saída: ");
-							inputDiaSaida = input.nextInt();
-							diaSaida = inputDiaSaida;
-
-							System.out.print("Mês da saída: ");
-							inputMesSaida = input.nextInt();
-							mesSaida = inputMesSaida;
-
-							System.out.print("Ano da saída: ");
-							inputAnoSaida = input.nextInt();
-							anoSaida = inputAnoSaida;
-
-							System.out.println("....................");
-						}
-
-						dataEntrada = LocalDate.of(anoEntrada, mesEntrada, diaEntrada);
-						dataSaida = LocalDate.of(anoSaida, mesSaida, diaSaida);
-
-						diasHospedado = ChronoUnit.DAYS.between(dataEntrada, dataSaida);
-
-						System.out.println();
-
-						valorTotal = diasHospedado * diariaEconomico;
-
-						System.out.println("Você ficará " + diasHospedado + " dias hospedado no " + hotelNome
-								+ " e pagará um total de R$" + valorTotal);
-						System.out.println("\n....................");
-
-						break;
-					case 2:
-						System.out.println("Quarto Executivo selecionado!");
-						System.out.println("A diária do Quarto Executivo é de: R$" + diariaExecutivo);
-
-						System.out.println("....................\n");
-
-						System.out.print("Dia da entrada: ");
-						inputDiaEntrada = input.nextInt();
-						diaEntrada = inputDiaEntrada;
-
-						System.out.print("Mês da entrada: ");
-						inputMesEntrada = input.nextInt();
-						mesEntrada = inputMesEntrada;
-
-						System.out.print("Ano da entrada: ");
-						inputAnoEntrada = input.nextInt();
-						anoEntrada = inputAnoEntrada;
-
-						System.out.println();
-
-						System.out.print("Dia da saída: ");
-						inputDiaSaida = input.nextInt();
-						diaSaida = inputDiaSaida;
-
-						System.out.print("Mês da saída: ");
-						inputMesSaida = input.nextInt();
-						mesSaida = inputMesSaida;
-
-						System.out.print("Ano da saída: ");
-						inputAnoSaida = input.nextInt();
-						anoSaida = inputAnoSaida;
-
-						while (diaEntrada <= 0 || diaEntrada > 31 || mesEntrada <= 0 || mesEntrada > 12 || diaSaida <= 0 // 31
-								|| diaSaida > 31 || mesSaida <= 0 || mesSaida > 12 || anoEntrada > anoSaida) {
-
-							System.out.println("....................");
-
-							System.out.println("Insira uma data válida!");
-
-							System.out.print("Dia da entrada: ");
-							inputDiaEntrada = input.nextInt();
-							diaEntrada = inputDiaEntrada;
-
-							System.out.print("Mês da entrada: ");
-							inputMesEntrada = input.nextInt();
-							mesEntrada = inputMesEntrada;
-
-							System.out.print("Ano da entrada: ");
-							inputAnoEntrada = input.nextInt();
-							anoEntrada = inputAnoEntrada;
-
-							System.out.print("Dia da saída: ");
-							inputDiaSaida = input.nextInt();
-							diaSaida = inputDiaSaida;
-
-							System.out.print("Mês da saída: ");
-							inputMesSaida = input.nextInt();
-							mesSaida = inputMesSaida;
-
-							System.out.print("Ano da saída: ");
-							inputAnoSaida = input.nextInt();
-							anoSaida = inputAnoSaida;
-
-							System.out.println("....................");
-						}
-
-						dataEntrada = LocalDate.of(anoEntrada, mesEntrada, diaEntrada);
-						dataSaida = LocalDate.of(anoSaida, mesSaida, diaSaida);
-
-						diasHospedado = ChronoUnit.DAYS.between(dataEntrada, dataSaida);
-
-						System.out.println();
-
-						valorTotal = diasHospedado * diariaExecutivo;
-
-						System.out.println("Você ficará " + diasHospedado + " dias hospedado no " + hotelNome
-								+ " e pagará um total de R$" + valorTotal);
-						System.out.println("\n....................");
-						break;
-
-					case 3:
-						System.out.println("Quarto Executivo selecionado!");
-						System.out.println("A diária do Quarto Executivo é de: R$" + diariaSuiteMaster);
-
-						System.out.println("....................\n");
-
-						System.out.print("Dia da entrada: ");
-						inputDiaEntrada = input.nextInt();
-						diaEntrada = inputDiaEntrada;
-
-						System.out.print("Mês da entrada: ");
-						inputMesEntrada = input.nextInt();
-						mesEntrada = inputMesEntrada;
-
-						System.out.print("Ano da entrada: ");
-						inputAnoEntrada = input.nextInt();
-						anoEntrada = inputAnoEntrada;
-
-						System.out.println();
-
-						System.out.print("Dia da saída: ");
-						inputDiaSaida = input.nextInt();
-						diaSaida = inputDiaSaida;
-
-						System.out.print("Mês da saída: ");
-						inputMesSaida = input.nextInt();
-						mesSaida = inputMesSaida;
-
-						System.out.print("Ano da saída: ");
-						inputAnoSaida = input.nextInt();
-						anoSaida = inputAnoSaida;
-
-						while (diaEntrada <= 0 || diaEntrada > 31 || mesEntrada <= 0 || mesEntrada > 12 || diaSaida <= 0 // 31
-								|| diaSaida > 31 || mesSaida <= 0 || mesSaida > 12 || anoEntrada > anoSaida) {
-
-							System.out.println("....................");
-
-							System.out.println("Insira uma data válida!");
-
-							System.out.print("Dia da entrada: ");
-							inputDiaEntrada = input.nextInt();
-							diaEntrada = inputDiaEntrada;
-
-							System.out.print("Mês da entrada: ");
-							inputMesEntrada = input.nextInt();
-							mesEntrada = inputMesEntrada;
-
-							System.out.print("Ano da entrada: ");
-							inputAnoEntrada = input.nextInt();
-							anoEntrada = inputAnoEntrada;
-
-							System.out.print("Dia da saída: ");
-							inputDiaSaida = input.nextInt();
-							diaSaida = inputDiaSaida;
-
-							System.out.print("Mês da saída: ");
-							inputMesSaida = input.nextInt();
-							mesSaida = inputMesSaida;
-
-							System.out.print("Ano da saída: ");
-							inputAnoSaida = input.nextInt();
-							anoSaida = inputAnoSaida;
-
-							System.out.println("....................");
-						}
-
-						dataEntrada = LocalDate.of(anoEntrada, mesEntrada, diaEntrada);
-						dataSaida = LocalDate.of(anoSaida, mesSaida, diaSaida);
-
-						diasHospedado = ChronoUnit.DAYS.between(dataEntrada, dataSaida);
-
-						System.out.println();
-
-						valorTotal = diasHospedado * diariaSuiteMaster;
-
-						System.out.println("Você ficará " + diasHospedado + " dias hospedado no " + hotelNome
-								+ " e pagará um total de R$" + valorTotal);
-						System.out.println("\n....................");
-						break;
+						System.out.println("....................");
 					}
 
+					dataEntrada = LocalDate.of(inputAnoEntrada, inputMesEntrada, inputDiaEntrada);
+					dataSaida = LocalDate.of(inputAnoSaida, inputMesSaida, inputDiaSaida);
+
+					diasHospedado = ChronoUnit.DAYS.between(dataEntrada, dataSaida);
+
+					System.out.println();
+
+					switch (quartoDesejado) {
+					case 1:
+						valorTotal = diasHospedado * diariaEconomico;
+						break;
+					case 2:
+						valorTotal = diasHospedado * diariaExecutivo;
+						break;
+					case 3:
+						valorTotal = diasHospedado * diariaSuiteMaster;
+						break;
+					}
+					System.out.println("Você ficará " + diasHospedado + " dias hospedado no " + hotelNome
+							+ " e pagará um total de R$" + valorTotal);
+					System.out.println("\n....................");
 				}
 			} else {
 				System.out.println("Sr(a)." + nomeCompleto + ", sinto lhe informar que a " + hotelNome
@@ -384,6 +215,6 @@ public class SpartanSys {
 			System.out.println("A SER IMPLEMENTADO");
 			break;
 		}
-	}
 
+	}
 }
