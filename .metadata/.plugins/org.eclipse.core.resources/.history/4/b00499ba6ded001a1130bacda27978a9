@@ -12,6 +12,7 @@ public class SpartanSys {
 		Scanner inputSelecionar = new Scanner(System.in); // input para selecionar cadastrar ou consultar novo cliente
 		Scanner input = new Scanner(System.in); // input dos dias/mes/anos de entrada e saida
 		Calendar data = Calendar.getInstance();
+//		input.useDelimiter("\n");
 
 		int cadastrarNovamente = 0;
 		int hora = data.get(Calendar.HOUR_OF_DAY);
@@ -222,7 +223,6 @@ public class SpartanSys {
 						break;
 					}
 				}
-				inputCadastro.nextLine();
 			}
 
 			inputCadastro.close();

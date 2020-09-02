@@ -222,7 +222,6 @@ public class SpartanSys {
 						break;
 					}
 				}
-				inputCadastro.nextLine();
 			}
 
 			inputCadastro.close();

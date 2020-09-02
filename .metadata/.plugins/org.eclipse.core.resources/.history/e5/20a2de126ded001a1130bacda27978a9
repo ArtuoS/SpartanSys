@@ -70,7 +70,7 @@ public class SpartanSys {
 			// -------------------------------------
 
 			// -------------------------------------
-			double desconto = 1.0;
+			double desconto = 0.0;
 			double valorTotal = 0.0;
 			final String hotelNome = "Quality Hotel";
 			// -------------------------------------
@@ -104,10 +104,10 @@ public class SpartanSys {
 
 				switch (pagamento) {
 				case 3:
-					desconto = 1.1;
+					desconto = 0.1;
 					break;
 				case 4:
-					desconto = 1.15;
+					desconto = 0.15;
 					break;
 				}
 
@@ -222,7 +222,6 @@ public class SpartanSys {
 						break;
 					}
 				}
-				inputCadastro.nextLine();
 			}
 
 			inputCadastro.close();

@@ -58,11 +58,11 @@ public class SpartanSys {
 			// -------------------------------------
 
 			// -------------------------------------
-			int quartoEconomico = 12;
+			int quartoEconomico = 4;
 			int diariaEconomico = 40;
-			int quartoExecutivo = 4;
+			int quartoExecutivo = 2;
 			int diariaExecutivo = 100;
-			int suiteMaster = 1;
+			int suiteMaster = 1; 
 			int diariaSuiteMaster = 350;
 			final int quartosTotais = quartoEconomico + quartoExecutivo + suiteMaster;
 			int quartoDesejado;
@@ -70,7 +70,7 @@ public class SpartanSys {
 			// -------------------------------------
 
 			// -------------------------------------
-			double desconto = 1.0;
+			double desconto = 0.0;
 			double valorTotal = 0.0;
 			final String hotelNome = "Quality Hotel";
 			// -------------------------------------
@@ -79,35 +79,34 @@ public class SpartanSys {
 
 			while (cadastrarNovamente == 0) {
 
-				System.out.print("\nInsira seu nome completo: ");
+				System.out.print("Insira seu nome completo: ");
 				String nomeCompleto = inputCadastro.nextLine();
+				String[] nomes;
 
 				System.out.print("Insira seu CPF: ");
-				String CPF = inputCadastro.nextLine();
+				String CPF = inputCadastro.nextLine();	
 
 				System.out.print("Insira seu RG: ");
 				String RG = inputCadastro.nextLine();
 
-				System.out.print("\nInsira a forma de pagamento" + "\n [0] = Cartão de Crédito"
+				System.out.print("Insira a forma de pagamento" + "\n [0] = Cartão de Crédito"
 						+ "\n [1] = Cartão de Débito" + "\n [3] = Dinheiro" + "\n [4] = Bitcoin\n -> ");
 				byte pagamento = inputCadastro.nextByte();
-				System.out.println();
-				
+
 				while (pagamento != 0 && pagamento != 1 && pagamento != 2 && pagamento != 3 && pagamento != 4) {
-					System.out.print("\nInsira a forma de pagamento" + "\n [0] = Cartão de Crédito"
+					System.out.print("Insira a forma de pagamento" + "\n [0] = Cartão de Crédito"
 							+ "\n [1] = Cartão de Débito" + "\n [3] = Dinheiro" + "\n [4] = Bitcoin\n -> ");
 					pagamento = inputCadastro.nextByte();
-					System.out.println();
 				}
 
 				// PAGAMENTOS EM DINHEIRO E EM BITCOIN
 
 				switch (pagamento) {
 				case 3:
-					desconto = 1.1;
+					desconto = 0.1;
 					break;
 				case 4:
-					desconto = 1.15;
+					desconto = 0.15;
 					break;
 				}
 
@@ -222,7 +221,6 @@ public class SpartanSys {
 						break;
 					}
 				}
-				inputCadastro.nextLine();
 			}
 
 			inputCadastro.close();

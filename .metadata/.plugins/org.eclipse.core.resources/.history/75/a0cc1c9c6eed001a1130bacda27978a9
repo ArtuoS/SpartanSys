@@ -82,7 +82,7 @@ public class SpartanSys {
 				System.out.print("\nInsira seu nome completo: ");
 				String nomeCompleto = inputCadastro.nextLine();
 
-				System.out.print("Insira seu CPF: ");
+				System.out.print("\nInsira seu CPF: ");
 				String CPF = inputCadastro.nextLine();
 
 				System.out.print("Insira seu RG: ");

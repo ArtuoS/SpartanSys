@@ -12,6 +12,7 @@ public class SpartanSys {
 		Scanner inputSelecionar = new Scanner(System.in); // input para selecionar cadastrar ou consultar novo cliente
 		Scanner input = new Scanner(System.in); // input dos dias/mes/anos de entrada e saida
 		Calendar data = Calendar.getInstance();
+//		input.useDelimiter("\n");
 
 		int cadastrarNovamente = 0;
 		int hora = data.get(Calendar.HOUR_OF_DAY);
@@ -79,10 +80,11 @@ public class SpartanSys {
 
 			while (cadastrarNovamente == 0) {
 
-				System.out.print("\nInsira seu nome completo: ");
 				String nomeCompleto = inputCadastro.nextLine();
+				System.out.print("\nInsira seu nome completo: ");
+//				String nomeCompleto = inputCadastro.nextLine();
 
-				System.out.print("Insira seu CPF: ");
+				System.out.print("\nInsira seu CPF: ");
 				String CPF = inputCadastro.nextLine();
 
 				System.out.print("Insira seu RG: ");
@@ -222,7 +224,6 @@ public class SpartanSys {
 						break;
 					}
 				}
-				inputCadastro.nextLine();
 			}
 
 			inputCadastro.close();
