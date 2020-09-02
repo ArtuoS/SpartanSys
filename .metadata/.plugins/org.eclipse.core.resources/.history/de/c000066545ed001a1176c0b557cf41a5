@@ -13,7 +13,7 @@ public class SpartanSys {
 		Scanner input = new Scanner(System.in); // input dos dias/mes/anos de entrada e saida
 		Calendar data = Calendar.getInstance();
 
-		int cadastrarNovamente = 0;
+		int cadastrarNovamente = 1;
 		int hora = data.get(Calendar.HOUR_OF_DAY);
 
 		if (hora >= 6 && hora <= 12) {
@@ -39,7 +39,7 @@ public class SpartanSys {
 			System.out.println();
 		}
 
-		System.out.print(" [1] - Cadastrar \n" + " [2] - Consultar Cadastro\n -> ");
+		System.out.print("[1] - Cadastrar \n" + "[2] - Consultar Cadastro\n -> ");
 		byte selecionarOpcao = inputSelecionar.nextByte();
 		switch (selecionarOpcao) {
 		case 1:
@@ -77,7 +77,7 @@ public class SpartanSys {
 
 			// NOME, CPF, RG, FORMA DE PAGAMENTO
 
-			while (cadastrarNovamente == 0) {
+			while (cadastrarNovamente == 1) {
 
 				System.out.print("Insira seu nome completo: ");
 				String nomeCompleto = inputCadastro.nextLine();
@@ -210,7 +210,7 @@ public class SpartanSys {
 						System.out.println("Você ficará " + diasHospedado + " dias hospedado no " + hotelNome
 								+ " e pagará um total de R$" + valorTotal);
 						System.out.println("\n....................");
-						System.out.println("Deseja fazer outro cadastro: \n[0] = Sim" + "\n[1] = Não");
+						System.out.println("Deseja fazer outro cadastro: \n[0 - Sim]" + "\n[1 - Não]");
 						cadastrarNovamente = inputSelecionar.nextInt();
 					}
 				} else {

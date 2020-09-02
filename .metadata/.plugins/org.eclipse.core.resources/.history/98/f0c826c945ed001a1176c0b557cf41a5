@@ -39,7 +39,7 @@ public class SpartanSys {
 			System.out.println();
 		}
 
-		System.out.print(" [1] - Cadastrar \n" + " [2] - Consultar Cadastro\n -> ");
+		System.out.print("[1] - Cadastrar \n" + "[2] - Consultar Cadastro\n -> ");
 		byte selecionarOpcao = inputSelecionar.nextByte();
 		switch (selecionarOpcao) {
 		case 1:

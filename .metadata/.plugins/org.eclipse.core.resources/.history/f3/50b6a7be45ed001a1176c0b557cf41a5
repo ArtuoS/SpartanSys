@@ -39,7 +39,7 @@ public class SpartanSys {
 			System.out.println();
 		}
 
-		System.out.print(" [1] - Cadastrar \n" + " [2] - Consultar Cadastro\n -> ");
+		System.out.print("[1] - Cadastrar \n" + "[2] - Consultar Cadastro\n -> ");
 		byte selecionarOpcao = inputSelecionar.nextByte();
 		switch (selecionarOpcao) {
 		case 1:
@@ -210,7 +210,7 @@ public class SpartanSys {
 						System.out.println("Você ficará " + diasHospedado + " dias hospedado no " + hotelNome
 								+ " e pagará um total de R$" + valorTotal);
 						System.out.println("\n....................");
-						System.out.println("Deseja fazer outro cadastro: \n[0] = Sim" + "\n[1] = Não");
+						System.out.println("Deseja fazer outro cadastro: \n[0 - Sim]" + "\n[1 - Não]");
 						cadastrarNovamente = inputSelecionar.nextInt();
 					}
 				} else {
