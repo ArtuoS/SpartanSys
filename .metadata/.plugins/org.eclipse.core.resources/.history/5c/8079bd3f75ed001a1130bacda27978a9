@@ -45,14 +45,15 @@ public class SpartanSys {
 		case 1:
 			Scanner inputCadastro = new Scanner(System.in);
 
+			
 			// -------------------------------------
 			String nomeCompleto;
 			String CPF;
 			String RG;
 			int pagamento;
-
+			
 			// -------------------------------------
-
+			
 			// -------------------------------------
 			long diasHospedado;
 			int inputDiaEntrada;
@@ -79,10 +80,8 @@ public class SpartanSys {
 			// -------------------------------------
 
 			// -------------------------------------
-			String formaPagamento = " ";
 			double desconto = 1.0;
 			double valorTotal = 0.0;
-			double cotacaoBTC = 0.00002;
 			final String hotelNome = "Quality Hotel";
 			// -------------------------------------
 
@@ -100,13 +99,13 @@ public class SpartanSys {
 				RG = inputCadastro.nextLine();
 
 				System.out.print("\nInsira a forma de pagamento" + "\n [0] = Cartão de Crédito"
-						+ "\n [1] = Cartão de Débito" + "\n [2] = Dinheiro" + "\n [3] = Bitcoin\n -> ");
+						+ "\n [1] = Cartão de Débito" + "\n [3] = Dinheiro" + "\n [4] = Bitcoin\n -> ");
 				pagamento = inputCadastro.nextInt();
 				System.out.println();
 
 				while (pagamento != 0 && pagamento != 1 && pagamento != 2 && pagamento != 3 && pagamento != 4) {
 					System.out.print("\nInsira a forma de pagamento" + "\n [0] = Cartão de Crédito"
-							+ "\n [1] = Cartão de Débito" + "\n [2] = Dinheiro" + "\n [3] = Bitcoin\n -> ");
+							+ "\n [1] = Cartão de Débito" + "\n [3] = Dinheiro" + "\n [4] = Bitcoin\n -> ");
 					pagamento = inputCadastro.nextInt();
 					System.out.println();
 				}
@@ -114,21 +113,11 @@ public class SpartanSys {
 				// PAGAMENTOS EM DINHEIRO E EM BITCOIN
 
 				switch (pagamento) {
-				case 0:
-					desconto = 1.0;
-					formaPagamento = "Cartão de Crédito";
-					break;
-				case 1:
-					desconto = 1.0;
-					formaPagamento = "Cartão de Débito";
-					break;
-				case 2:
-					desconto = 0.1;
-					formaPagamento = "Dinheiro";
-					break;
 				case 3:
+					desconto = 0.1;
+					break;
+				case 4:
 					desconto = 0.15;
-					formaPagamento = "Bitcoin";
 					break;
 				}
 
@@ -218,7 +207,7 @@ public class SpartanSys {
 
 						switch (quartoDesejado) {
 						case 1:
-							valorTotal = diasHospedado * diariaEconomico;
+							valorTotal = (diasHospedado * diariaEconomico);
 							quartoEconomico--;
 							quarto = "Quarto Econômico";
 							break;
@@ -248,20 +237,14 @@ public class SpartanSys {
 				}
 				inputCadastro.nextLine();
 				if (cadastrarNovamente == 1) {
-					System.out.println("+-----------------------------+");
-					System.out.println("| NOME " + nomeCompleto);
-					System.out.println("| CPF " + CPF);
-					System.out.println("| RG " + RG);
-					System.out.println("| QUARTO " + quarto);
-					if (pagamento == 3) {
-						System.out.println("| FORMA DE PAGAMENTO " + formaPagamento + " | R$1.00 = 0.00002 BTC | ");
-						valorTotal *= cotacaoBTC;
-						System.out.println("| TOTAL " + valorTotal + "BTC");
-					} else {
-						System.out.println("| FORMA DE PAGAMENTO " + formaPagamento);
-						System.out.println("| TOTAL R$" + valorTotal);
-					}
-					System.out.println("+-----------------------------+");
+					System.out.println("+---------------------+");
+					System.out.println("NOME " + nomeCompleto);
+					System.out.println("CPF " + CPF);
+					System.out.println("RG " + RG);
+					System.out.println("QUARTO " + quarto);
+					System.out.println("DÊ " + inputAnoEntrada + "/" + inputMesEntrada + "/" + inputDiaEntrada);
+					
+					System.out.println("+---------------------+");
 					System.out.println();
 				}
 			}

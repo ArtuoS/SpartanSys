@@ -46,14 +46,6 @@ public class SpartanSys {
 			Scanner inputCadastro = new Scanner(System.in);
 
 			// -------------------------------------
-			String nomeCompleto;
-			String CPF;
-			String RG;
-			int pagamento;
-
-			// -------------------------------------
-
-			// -------------------------------------
 			long diasHospedado;
 			int inputDiaEntrada;
 			int inputMesEntrada;
@@ -74,15 +66,12 @@ public class SpartanSys {
 			int diariaSuiteMaster = 350;
 			final int quartosTotais = quartoEconomico + quartoExecutivo + suiteMaster;
 			int quartoDesejado;
-			String quarto = "Nenhum";
 			boolean isQuartoDisponivel = false;
 			// -------------------------------------
 
 			// -------------------------------------
-			String formaPagamento = " ";
 			double desconto = 1.0;
 			double valorTotal = 0.0;
-			double cotacaoBTC = 0.00002;
 			final String hotelNome = "Quality Hotel";
 			// -------------------------------------
 
@@ -91,44 +80,34 @@ public class SpartanSys {
 			while (cadastrarNovamente == 0) {
 
 				System.out.print("\nInsira seu nome completo: ");
-				nomeCompleto = inputCadastro.nextLine();
+				String nomeCompleto = inputCadastro.nextLine();
 
 				System.out.print("Insira seu CPF: ");
-				CPF = inputCadastro.nextLine();
+				String CPF = inputCadastro.nextLine();
 
 				System.out.print("Insira seu RG: ");
-				RG = inputCadastro.nextLine();
+				String RG = inputCadastro.nextLine();
 
 				System.out.print("\nInsira a forma de pagamento" + "\n [0] = Cartão de Crédito"
-						+ "\n [1] = Cartão de Débito" + "\n [2] = Dinheiro" + "\n [3] = Bitcoin\n -> ");
-				pagamento = inputCadastro.nextInt();
+						+ "\n [1] = Cartão de Débito" + "\n [3] = Dinheiro" + "\n [4] = Bitcoin\n -> ");
+				byte pagamento = inputCadastro.nextByte();
 				System.out.println();
-
+				
 				while (pagamento != 0 && pagamento != 1 && pagamento != 2 && pagamento != 3 && pagamento != 4) {
 					System.out.print("\nInsira a forma de pagamento" + "\n [0] = Cartão de Crédito"
-							+ "\n [1] = Cartão de Débito" + "\n [2] = Dinheiro" + "\n [3] = Bitcoin\n -> ");
-					pagamento = inputCadastro.nextInt();
+							+ "\n [1] = Cartão de Débito" + "\n [3] = Dinheiro" + "\n [4] = Bitcoin\n -> ");
+					pagamento = inputCadastro.nextByte();
 					System.out.println();
 				}
 
 				// PAGAMENTOS EM DINHEIRO E EM BITCOIN
 
 				switch (pagamento) {
-				case 0:
-					desconto = 1.0;
-					formaPagamento = "Cartão de Crédito";
-					break;
-				case 1:
-					desconto = 1.0;
-					formaPagamento = "Cartão de Débito";
-					break;
-				case 2:
-					desconto = 0.1;
-					formaPagamento = "Dinheiro";
-					break;
 				case 3:
+					desconto = 0.1;
+					break;
+				case 4:
 					desconto = 0.15;
-					formaPagamento = "Bitcoin";
 					break;
 				}
 
@@ -155,7 +134,7 @@ public class SpartanSys {
 							quartoDesejado = inputCadastro.nextInt();
 						}
 
-						System.out.println("....................");
+						System.out.println("....................\n");
 
 						System.out.print("Dia da entrada: ");
 						inputDiaEntrada = input.nextInt();
@@ -218,24 +197,19 @@ public class SpartanSys {
 
 						switch (quartoDesejado) {
 						case 1:
-							valorTotal = diasHospedado * diariaEconomico;
+							valorTotal = (diasHospedado * diariaEconomico);
+							valorTotal = (valorTotal * desconto) - valorTotal;
 							quartoEconomico--;
-							quarto = "Quarto Econômico";
 							break;
 						case 2:
 							valorTotal = diasHospedado * diariaExecutivo;
 							quartoExecutivo--;
-							quarto = "Quarto Executivo";
 							break;
 						case 3:
 							valorTotal = diasHospedado * diariaSuiteMaster;
-							quarto = "Suíte Master";
 							suiteMaster--;
 							break;
 						}
-
-						valorTotal = valorTotal - (valorTotal * desconto);
-
 						System.out.println("Você ficará " + diasHospedado + " dias hospedado no " + hotelNome
 								+ " e pagará um total de R$" + valorTotal);
 						System.out.println("\n....................");
@@ -245,31 +219,16 @@ public class SpartanSys {
 				} else {
 					System.out.println("Sr(a)." + nomeCompleto + ", sinto lhe informar que a " + hotelNome
 							+ " está sem quartos disponíveis.");
+					while (!isQuartoDisponivel) {
+						break;
+					}
 				}
 				inputCadastro.nextLine();
-				if (cadastrarNovamente == 1) {
-					System.out.println("+-----------------------------+");
-					System.out.println("| NOME " + nomeCompleto);
-					System.out.println("| CPF " + CPF);
-					System.out.println("| RG " + RG);
-					System.out.println("| QUARTO " + quarto);
-					if (pagamento == 3) {
-						System.out.println("| FORMA DE PAGAMENTO " + formaPagamento + " | R$1.00 = 0.00002 BTC | ");
-						valorTotal *= cotacaoBTC;
-						System.out.println("| TOTAL " + valorTotal + "BTC");
-					} else {
-						System.out.println("| FORMA DE PAGAMENTO " + formaPagamento);
-						System.out.println("| TOTAL R$" + valorTotal);
-					}
-					System.out.println("+-----------------------------+");
-					System.out.println();
-				}
 			}
 
 			inputCadastro.close();
 			inputSelecionar.close();
 			input.close();
-
 			break;
 
 		case 2:
