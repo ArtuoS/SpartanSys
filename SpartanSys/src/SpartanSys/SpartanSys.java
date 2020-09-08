@@ -278,7 +278,7 @@ public class SpartanSys {
 			break;
 
 		case 2:
-			System.out.println("A SER IMPLEMENTADO");
+			System.out.println("A SER IMPLEMENTADO!");
 		}
 
 	}
