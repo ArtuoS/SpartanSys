@@ -86,7 +86,7 @@ public class SpartanSys {
 			// -------------------------------------
 			String formaPagamento = " ";
 			double desconto = 1.0;
-			double valorTotal = 1.0;
+			double valorTotal = 0.0;
 			double cotacaoBTC = 0.00002;
 			final String hotelNome = "Quality Hotel";
 			// -------------------------------------
@@ -109,7 +109,7 @@ public class SpartanSys {
 				pagamento = inputCadastro.nextInt();
 				System.out.println();
 
-				while (pagamento != 0 && pagamento != 1 && pagamento != 2 && pagamento != 3) {
+				while (pagamento != 0 && pagamento != 1 && pagamento != 2 && pagamento != 3 && pagamento != 4) {
 					System.out.print("\nInsira a forma de pagamento" + "\n [0] = Cartão de Crédito"
 							+ "\n [1] = Cartão de Débito" + "\n [2] = Dinheiro" + "\n [3] = Bitcoin\n -> ");
 					pagamento = inputCadastro.nextInt();
@@ -120,11 +120,11 @@ public class SpartanSys {
 
 				switch (pagamento) {
 				case 0:
-					desconto = 0.0;
+					desconto = 1.0;
 					formaPagamento = "Cartão de Crédito";
 					break;
 				case 1:
-					desconto = 0.0;
+					desconto = 1.0;
 					formaPagamento = "Cartão de Débito";
 					break;
 				case 2:
@@ -278,7 +278,13 @@ public class SpartanSys {
 			break;
 
 		case 2:
-			System.out.println("A SER IMPLEMENTADO");
+			System.out.println("--------------------------------");
+			System.out.println("Localização: ITACARÉ - BA");
+			System.out.println("Rua Augusta, 101");
+			System.out.println("CEP: 45520-000");
+			System.out.println("TEL: 4002-8922");
+			System.out.println("--------------------------------");
+			break;
 		}
 
 	}

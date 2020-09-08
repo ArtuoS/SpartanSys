@@ -1,8 +1,0 @@
-package SpartanSys;
-
-import java.util.Scanner;
-
-public class HospedeRegistro {
-
-	String a = "asd";
-}
