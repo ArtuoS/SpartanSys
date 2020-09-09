@@ -1,9 +1,11 @@
 package SpartanSys;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+//import java.awt.List;
 
 public class SpartanSys {
 
@@ -46,50 +48,66 @@ public class SpartanSys {
 			System.out.print("[1] - Cadastrar \n" + "[2] - Informaçoes sobre o Hotel\n -> ");
 			selecionarOpcao = inputSelecionar.nextByte();
 		}
+
+		// -------------------------------------
+		// VÁRIAVEIS E COISAS ÚTEIS DO CÓDIGO
+		// -------------------------------------
+		String nomeCompleto = "";
+		ArrayList<String> arrayNomeCompleto = new ArrayList<String>();
+
+		String CPF = "";
+		ArrayList<String> arrayCPF = new ArrayList<String>();
+
+		String RG = "";
+		ArrayList<String> arrayRG = new ArrayList<String>();
+
+		int pagamento = 0;
+		ArrayList<Integer> arrayPagamento = new ArrayList<Integer>();
+
+		// -------------------------------------
+
+		// -------------------------------------
+		long diasHospedado;
+		int inputDiaEntrada;
+		int inputMesEntrada;
+		int inputAnoEntrada;
+		int inputDiaSaida;
+		int inputMesSaida;
+		int inputAnoSaida;
+		LocalDate dataEntrada;
+		LocalDate dataSaida;
+		// -------------------------------------
+
+		// -------------------------------------
+		int quartoEconomico = 12;
+		int diariaEconomico = 40;
+		int quartoExecutivo = 4;
+		int diariaExecutivo = 100;
+		int suiteMaster = 1;
+		int diariaSuiteMaster = 350;
+		final int quartosTotais = quartoEconomico + quartoExecutivo + suiteMaster;
+		int quartoDesejado;
+		String quarto = "Nenhum";
+		ArrayList<String> arrayQuarto = new ArrayList<String>();
+
+		boolean isQuartoDisponivel = false;
+		// -------------------------------------
+
+		// -------------------------------------
+		String formaPagamento = "";
+		ArrayList<String> arrayFormaPagamento = new ArrayList<String>();
+
+		double desconto = 1.0;
+		double valorTotal = 1.0;
+		ArrayList<Double> arrayValorTotal = new ArrayList<Double>();
+
+		double cotacaoBTC = 0.00002;
+		final String hotelNome = "Quality Hotel";
+		// -------------------------------------
+
 		switch (selecionarOpcao) {
 		case 1:
 			Scanner inputCadastro = new Scanner(System.in);
-
-			// -------------------------------------
-			String nomeCompleto;
-			String CPF;
-			String RG;
-			int pagamento;
-
-			// -------------------------------------
-
-			// -------------------------------------
-			long diasHospedado;
-			int inputDiaEntrada;
-			int inputMesEntrada;
-			int inputAnoEntrada;
-			int inputDiaSaida;
-			int inputMesSaida;
-			int inputAnoSaida;
-			LocalDate dataEntrada;
-			LocalDate dataSaida;
-			// -------------------------------------
-
-			// -------------------------------------
-			int quartoEconomico = 12;
-			int diariaEconomico = 40;
-			int quartoExecutivo = 4;
-			int diariaExecutivo = 100;
-			int suiteMaster = 1;
-			int diariaSuiteMaster = 350;
-			final int quartosTotais = quartoEconomico + quartoExecutivo + suiteMaster;
-			int quartoDesejado;
-			String quarto = "Nenhum";
-			boolean isQuartoDisponivel = false;
-			// -------------------------------------
-
-			// -------------------------------------
-			String formaPagamento = " ";
-			double desconto = 1.0;
-			double valorTotal = 1.0;
-			double cotacaoBTC = 0.00002;
-			final String hotelNome = "Quality Hotel";
-			// -------------------------------------
 
 			// NOME, CPF, RG, FORMA DE PAGAMENTO
 
@@ -97,12 +115,15 @@ public class SpartanSys {
 
 				System.out.print("\nInsira seu nome completo: ");
 				nomeCompleto = inputCadastro.nextLine();
+				arrayNomeCompleto.add(nomeCompleto);
 
 				System.out.print("Insira seu CPF: ");
 				CPF = inputCadastro.nextLine();
+				arrayCPF.add(CPF);
 
 				System.out.print("Insira seu RG: ");
 				RG = inputCadastro.nextLine();
+				arrayRG.add(RG);
 
 				System.out.print("\nInsira a forma de pagamento" + "\n [0] = Cartão de Crédito"
 						+ "\n [1] = Cartão de Débito" + "\n [2] = Dinheiro" + "\n [3] = Bitcoin\n -> ");
@@ -122,18 +143,26 @@ public class SpartanSys {
 				case 0:
 					desconto = 0.0;
 					formaPagamento = "Cartão de Crédito";
+					arrayFormaPagamento.add(formaPagamento);
+					arrayPagamento.add(pagamento);
 					break;
 				case 1:
 					desconto = 0.0;
 					formaPagamento = "Cartão de Débito";
+					arrayFormaPagamento.add(formaPagamento);
+					arrayPagamento.add(pagamento);
 					break;
 				case 2:
 					desconto = 0.1;
 					formaPagamento = "Dinheiro";
+					arrayFormaPagamento.add(formaPagamento);
+					arrayPagamento.add(pagamento);
 					break;
 				case 3:
 					desconto = 0.15;
 					formaPagamento = "Bitcoin";
+					arrayFormaPagamento.add(formaPagamento);
+					arrayPagamento.add(pagamento);
 					break;
 				}
 
@@ -226,20 +255,24 @@ public class SpartanSys {
 							valorTotal = diasHospedado * diariaEconomico;
 							quartoEconomico--;
 							quarto = "Quarto Econômico";
+							arrayQuarto.add(quarto);
 							break;
 						case 2:
 							valorTotal = diasHospedado * diariaExecutivo;
 							quartoExecutivo--;
 							quarto = "Quarto Executivo";
+							arrayQuarto.add(quarto);
 							break;
 						case 3:
 							valorTotal = diasHospedado * diariaSuiteMaster;
 							quarto = "Suíte Master";
+							arrayQuarto.add(quarto);
 							suiteMaster--;
 							break;
 						}
 
 						valorTotal = valorTotal - (valorTotal * desconto);
+//						arrayValorTotal.add(valorTotal);
 
 						System.out.println("Você ficará " + diasHospedado + " dias hospedado no " + hotelNome
 								+ " e pagará um total de R$" + valorTotal);
@@ -252,19 +285,24 @@ public class SpartanSys {
 							+ " está sem quartos disponíveis.");
 				}
 				inputCadastro.nextLine();
+
 				if (cadastrarNovamente == 1) {
 					System.out.println("+-----------------------------+");
-					System.out.println("| NOME " + nomeCompleto);
-					System.out.println("| CPF " + CPF);
-					System.out.println("| RG " + RG);
-					System.out.println("| QUARTO " + quarto);
-					if (pagamento == 3) {
-						System.out.println("| FORMA DE PAGAMENTO " + formaPagamento + " | R$1.00 = 0.00002 BTC | ");
+					System.out.println("| NOME " + arrayNomeCompleto.get(0));
+					System.out.println("| CPF " + arrayCPF.get(0));
+					System.out.println("| RG " + arrayRG.get(0));
+					System.out.println("| QUARTO " + arrayQuarto.get(0));
+					if ((int) (arrayPagamento.get(0)) == 3) {
+						System.out.println("| FORMA DE PAGAMENTO " + arrayFormaPagamento.get(0) + " | R$1.00 = 0.00002 BTC |"); // + " | R$1.00 =
+																									// 0.00002 BTC | "
 						valorTotal *= cotacaoBTC;
-						System.out.println("| TOTAL " + valorTotal + "BTC");
+						arrayValorTotal.add(valorTotal);
+						
+						System.out.println("| TOTAL " + arrayValorTotal.get(0) + "BTC");
 					} else {
-						System.out.println("| FORMA DE PAGAMENTO " + formaPagamento);
-						System.out.println("| TOTAL R$" + valorTotal);
+						arrayValorTotal.add(valorTotal);
+						System.out.println("| FORMA DE PAGAMENTO " + arrayFormaPagamento.get(0));
+						System.out.println("| TOTAL R$" + arrayValorTotal.get(0));
 					}
 					System.out.println("+-----------------------------+");
 					System.out.println();
@@ -277,9 +315,6 @@ public class SpartanSys {
 
 			break;
 
-		case 2:
-			System.out.println("A SER IMPLEMENTADO!");
 		}
-
 	}
 }
