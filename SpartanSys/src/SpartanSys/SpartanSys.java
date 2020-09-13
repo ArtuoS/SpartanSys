@@ -40,20 +40,20 @@ public class SpartanSys {
 			System.out.println("+---------------------+");
 			System.out.println();
 		}
-
-		byte qtdCadastros = 0;
-
-		System.out.print(" [1] - Cadastrar \n" + " [2] - Consultar cadastros\n -> ");
-		byte selecionarOpcao = inputSelecionar.nextByte();
-		while (selecionarOpcao < 1 || selecionarOpcao > 2) {
-			System.out.println("\nTENTE NOVAMENTE\n");
-			System.out.print("[1] - Cadastrar \n" + "[2] - Consultar cadastros\n -> ");
-			selecionarOpcao = inputSelecionar.nextByte();
-		}
-		if (qtdCadastros < 1 && selecionarOpcao == 2) {
-			System.out.print("\nNenhum cadastro foi encontrado, redirecionando para cadastro...");
-			selecionarOpcao = 1;
-		}
+//
+//		byte qtdCadastros = 0;
+//
+//		System.out.print(" [1] - Cadastrar \n" + " [2] - Consultar cadastros\n -> ");
+//		byte selecionarOpcao = inputSelecionar.nextByte();
+//		while (selecionarOpcao < 1 || selecionarOpcao > 2) {
+//			System.out.println("\nTENTE NOVAMENTE\n");
+//			System.out.print("[1] - Cadastrar \n" + "[2] - Consultar cadastros\n -> ");
+//			selecionarOpcao = inputSelecionar.nextByte();
+//		}
+//		if (qtdCadastros < 1 && selecionarOpcao == 2) {
+//			System.out.print("\nNenhum cadastro foi encontrado, redirecionando para cadastro...");
+//			selecionarOpcao = 1;
+//		}
 
 		// -------------------------------------
 		// VÁRIAVEIS E COISAS ÚTEIS DO CÓDIGO
@@ -85,18 +85,17 @@ public class SpartanSys {
 		// -------------------------------------
 
 		// -------------------------------------
-		int quartoEconomico = 3;
+		int quartoEconomico = 1;
 		int diariaEconomico = 40;
-		int quartoExecutivo = 3;
+		int quartoExecutivo = 1;
 		int diariaExecutivo = 100;
 		int suiteMaster = 1;
 		int diariaSuiteMaster = 350;
-		final int quartosTotais = quartoEconomico + quartoExecutivo + suiteMaster;
+		int quartosTotais = quartoEconomico + quartoExecutivo + suiteMaster;
 		int quartoDesejado;
 		String quarto = "Nenhum";
 		ArrayList<String> arrayQuarto = new ArrayList<String>();
 
-		boolean isQuartoDisponivel = false;
 		// -------------------------------------
 
 		// -------------------------------------
@@ -105,7 +104,7 @@ public class SpartanSys {
 
 		double desconto = 1.0;
 		double valorTotal = 1.0;
-		ArrayList arrayValorTotal = new ArrayList();
+		ArrayList<Double> arrayValorTotal = new ArrayList<Double>();
 
 		double cotacaoBTC = 0.00002;
 		final String hotelNome = "Quality Hotel";
@@ -113,20 +112,19 @@ public class SpartanSys {
 		// CASE 2
 
 		byte numeroCadastro = 0;
+		byte novaConsulta = 0;
 
 		// -------------------------------------
 
 //		if() {
 
 //		}
-		switch (selecionarOpcao) {
-		case 1:
-			Scanner inputCadastro = new Scanner(System.in);
+		Scanner inputCadastro = new Scanner(System.in);
 
-			// NOME, CPF, RG, FORMA DE PAGAMENTO
+		// NOME, CPF, RG, FORMA DE PAGAMENTO
 
-			while (cadastrarNovamente == 0) {
-
+		while (cadastrarNovamente == 0) {
+			if (quartosTotais > 0) {
 				System.out.print("\nInsira seu nome completo: ");
 				nomeCompleto = inputCadastro.nextLine();
 				arrayNomeCompleto.add(nomeCompleto);
@@ -182,168 +180,179 @@ public class SpartanSys {
 
 				// QUARTOS DISPONIVEIS
 
-				if (quartosTotais > 0) {
-					isQuartoDisponivel = true;
-					if (isQuartoDisponivel) {
-						System.out.println("Temos " + quartosTotais + " quartos disponíveis: \n"
-								+ "Número de Quartos Econômicos = [ " + quartoEconomico + " ]\n"
-								+ "Número de Quartos Executivos = [ " + quartoExecutivo + " ]\n"
-								+ "Número de Suítes Master = [ " + suiteMaster + " ]");
+				System.out.println("Número de Quartos Econômicos = [ " + quartoEconomico + " ]\n"
+						+ "Número de Quartos Executivos = [ " + quartoExecutivo + " ]\n"
+						+ "Número de Suítes Master = [ " + suiteMaster + " ]");
 
-						System.out.println("Em qual quarto o(a) Sr(a)." + nomeCompleto + " gostaria de se hospedar:\n");
-						System.out.print("Para selecionar o 'Quarto Econômico', digite [ 1 ]\n"
-								+ "Para selecionar o 'Quarto Executivo', digite [ 2 ]\n"
-								+ "Para selecionar a 'Suíte Master', digite [ 3 ]\n -> ");
-						quartoDesejado = inputCadastro.nextInt();
+				System.out.println("Em qual quarto o(a) Sr(a)." + nomeCompleto + " gostaria de se hospedar:\n");
+				System.out.print("Para selecionar o 'Quarto Econômico', digite [ 1 ]\n"
+						+ "Para selecionar o 'Quarto Executivo', digite [ 2 ]\n"
+						+ "Para selecionar a 'Suíte Master', digite [ 3 ]\n -> ");
+				quartoDesejado = inputCadastro.nextInt();
 
-						while (quartoDesejado != 1 && quartoDesejado != 2 && quartoDesejado != 3) {
-							System.out.print("Para selecionar o 'Quarto Econômico', digite [ 1 ]\n"
-									+ "Para selecionar o 'Quarto Executivo', digite [ 2 ]\n"
-									+ "Para selecionar a 'Suíte Master', digite [ 3 ]\n -> ");
-							quartoDesejado = inputCadastro.nextInt();
-						}
+				while (quartoDesejado != 1 && quartoDesejado != 2 && quartoDesejado != 3) {
+					System.out.print("Para selecionar o 'Quarto Econômico', digite [ 1 ]\n"
+							+ "Para selecionar o 'Quarto Executivo', digite [ 2 ]\n"
+							+ "Para selecionar a 'Suíte Master', digite [ 3 ]\n -> ");
+					quartoDesejado = inputCadastro.nextInt();
+				}
 
-						System.out.println("....................");
+				while ((quartoDesejado == 1 && quartoEconomico <= 0) || (quartoDesejado == 2 && quartoExecutivo <= 0)
+						|| (quartoDesejado == 3 && suiteMaster <= 0)) {
+					System.out.println("Sem vagas no quarto selecionado, por favor, selecione outro quarto!");
+					System.out.print("Para selecionar o 'Quarto Econômico', digite [ 1 ]\n"
+							+ "Para selecionar o 'Quarto Executivo', digite [ 2 ]\n"
+							+ "Para selecionar a 'Suíte Master', digite [ 3 ]\n -> ");
+					quartoDesejado = inputCadastro.nextInt();
+				}
 
-						System.out.print("Dia da entrada: ");
-						inputDiaEntrada = input.nextByte();
+				System.out.println("....................");
 
-						System.out.print("Mês da entrada: ");
-						inputMesEntrada = input.nextByte();
+				System.out.print("Dia da entrada: ");
+				inputDiaEntrada = input.nextByte();
 
-						System.out.print("Ano da entrada: ");
-						inputAnoEntrada = input.nextInt();
+				System.out.print("Mês da entrada: ");
+				inputMesEntrada = input.nextByte();
 
-						System.out.println();
+				System.out.print("Ano da entrada: ");
+				inputAnoEntrada = input.nextInt();
 
-						System.out.print("Dia da saída: ");
-						inputDiaSaida = input.nextByte();
+				System.out.println();
 
-						System.out.print("Mês da saída: ");
-						inputMesSaida = input.nextByte();
+				System.out.print("Dia da saída: ");
+				inputDiaSaida = input.nextByte();
 
-						System.out.print("Ano da saída: ");
-						inputAnoSaida = input.nextInt();
+				System.out.print("Mês da saída: ");
+				inputMesSaida = input.nextByte();
 
-						while (inputDiaEntrada <= 0 || inputDiaEntrada > 31 || inputMesEntrada <= 0
-								|| inputMesEntrada > 12 || inputDiaSaida <= 0 // 31
-								|| inputDiaSaida > 31 || inputMesSaida <= 0 || inputMesSaida > 12
-								|| inputAnoEntrada > inputAnoSaida) {
+				System.out.print("Ano da saída: ");
+				inputAnoSaida = input.nextInt();
 
-							System.out.println("....................");
+				while (inputDiaEntrada <= 0 || inputDiaEntrada > 31 || inputMesEntrada <= 0 || inputMesEntrada > 12
+						|| inputDiaSaida <= 0 // 31
+						|| inputDiaSaida > 31 || inputMesSaida <= 0 || inputMesSaida > 12
+						|| inputAnoEntrada > inputAnoSaida || inputAnoEntrada < 2020) {
 
-							System.out.println("Insira uma data válida!");
+					System.out.println("....................");
 
-							System.out.print("Dia da entrada: ");
-							inputDiaEntrada = input.nextByte();
+					System.out.println("Insira uma data válida!");
 
-							System.out.print("Mês da entrada: ");
-							inputMesEntrada = input.nextByte();
+					System.out.print("Dia da entrada: ");
+					inputDiaEntrada = input.nextByte();
 
-							System.out.print("Ano da entrada: ");
-							inputAnoEntrada = input.nextInt();
+					System.out.print("Mês da entrada: ");
+					inputMesEntrada = input.nextByte();
 
-							System.out.println();
+					System.out.print("Ano da entrada: ");
+					inputAnoEntrada = input.nextInt();
 
-							System.out.print("Dia da saída: ");
-							inputDiaSaida = input.nextByte();
+					System.out.println();
 
-							System.out.print("Mês da saída: ");
-							inputMesSaida = input.nextByte();
+					System.out.print("Dia da saída: ");
+					inputDiaSaida = input.nextByte();
 
-							System.out.print("Ano da saída: ");
-							inputAnoSaida = input.nextInt();
+					System.out.print("Mês da saída: ");
+					inputMesSaida = input.nextByte();
 
-							System.out.println("....................");
-						}
+					System.out.print("Ano da saída: ");
+					inputAnoSaida = input.nextInt();
 
-						dataEntrada = LocalDate.of(inputAnoEntrada, inputMesEntrada, inputDiaEntrada);
-						dataSaida = LocalDate.of(inputAnoSaida, inputMesSaida, inputDiaSaida);
+					System.out.println("....................");
+				}
 
-						diasHospedado = ChronoUnit.DAYS.between(dataEntrada, dataSaida);
+				dataEntrada = LocalDate.of(inputAnoEntrada, inputMesEntrada, inputDiaEntrada);
+				dataSaida = LocalDate.of(inputAnoSaida, inputMesSaida, inputDiaSaida);
 
-						System.out.println();
+				diasHospedado = ChronoUnit.DAYS.between(dataEntrada, dataSaida);
 
-						switch (quartoDesejado) {
-						case 1:
-							valorTotal = diasHospedado * diariaEconomico;
-							quartoEconomico--;
-							quarto = "Quarto Econômico";
-							arrayQuarto.add(quarto);
-							break;
-						case 2:
-							valorTotal = diasHospedado * diariaExecutivo;
-							quartoExecutivo--;
-							quarto = "Quarto Executivo";
-							arrayQuarto.add(quarto);
-							break;
-						case 3:
-							valorTotal = diasHospedado * diariaSuiteMaster;
-							quarto = "Suíte Master";
-							arrayQuarto.add(quarto);
-							suiteMaster--;
-							break;
-						}
+				System.out.println();
 
-						valorTotal = valorTotal - (valorTotal * desconto);
+				switch (quartoDesejado) {
+				case 1:
+					valorTotal = diasHospedado * diariaEconomico;
+					quartoEconomico--;
+					quartosTotais--;
+					quarto = "Quarto Econômico";
+					arrayQuarto.add(quarto);
+					break;
+				case 2:
+					valorTotal = diasHospedado * diariaExecutivo;
+					quartoExecutivo--;
+					quartosTotais--;
+					quarto = "Quarto Executivo";
+					arrayQuarto.add(quarto);
+					break;
+				case 3:
+					valorTotal = diasHospedado * diariaSuiteMaster;
+					quarto = "Suíte Master";
+					quartosTotais--;
+					arrayQuarto.add(quarto);
+					suiteMaster--;
+					break;
+				}
 
-						System.out.println("Você ficará " + diasHospedado + " dias hospedado no " + hotelNome
-								+ " e pagará um total de R$" + valorTotal);
-						System.out.println("\n....................");
-						System.out.print("Deseja fazer outro cadastro: \n[0] = Sim" + "\n[1] = Não\n -> ");
-						cadastrarNovamente = inputSelecionar.nextInt();
+				valorTotal = valorTotal - (valorTotal * desconto);
+				arrayValorTotal.add(valorTotal);
 
-						while (cadastrarNovamente < 0 || cadastrarNovamente > 1) {
-							System.out.print("Deseja fazer outro cadastro: \n[0] = Sim" + "\n[1] = Não\n -> ");
-							cadastrarNovamente = inputSelecionar.nextInt();
-						}
+				System.out.println("Você ficará " + diasHospedado + " dias hospedado no " + hotelNome
+						+ " e pagará um total de R$" + valorTotal);
+				System.out.println("\n....................");
+				System.out.print("Deseja fazer outro cadastro: \n[0] = Sim" + "\n[1] = Não\n -> ");
+				cadastrarNovamente = inputSelecionar.nextInt();
 
-					}
-				} else {
-					System.out.print("Sr(a)." + nomeCompleto + ", sinto lhe informar que a " + hotelNome
-							+ " está sem quartos disponíveis.");
-					cadastrarNovamente = 1;
+				while (cadastrarNovamente < 0 || cadastrarNovamente > 1) {
+					System.out.print("Deseja fazer outro cadastro: \n[0] = Sim" + "\n[1] = Não\n -> ");
+					cadastrarNovamente = inputSelecionar.nextInt();
 				}
 				inputCadastro.nextLine();
+			} else {
+				System.out.print("Sr(a)." + nomeCompleto + ", sinto lhe informar que a " + hotelNome
+						+ " está sem quartos disponíveis.");
+				cadastrarNovamente = 1;
+			}
+//			inputCadastro.nextLine();
 
-				if (cadastrarNovamente == 1) {
-					System.out.print("Qual o número do cadastro você quer consultar: \n -> ");
-					if (input.hasNext()) {
-						numeroCadastro = input.nextByte();
-					}
-
-					System.out.println("+-----------------------------+");
-					System.out.println("| NOME " + arrayNomeCompleto.get(numeroCadastro));
-					System.out.println("| CPF " + arrayCPF.get(numeroCadastro));
-					System.out.println("| RG " + arrayRG.get(numeroCadastro));
-					System.out.println("| QUARTO " + arrayQuarto.get(numeroCadastro));
-					if ((int) (arrayPagamento.get(numeroCadastro)) == 3) {
-						System.out.println("| FORMA DE PAGAMENTO " + arrayFormaPagamento.get(numeroCadastro)
-								+ " | R$1.00 = 0.00002 BTC |");
-						valorTotal *= cotacaoBTC;
-						arrayValorTotal.add(valorTotal);
-
-						System.out.println("| TOTAL " + arrayValorTotal.get(numeroCadastro) + "BTC");
+			if (cadastrarNovamente == 1) {
+				while (novaConsulta == 0) {
+					System.out.print("\nConsultar algum cadastro: \n[0] = Sim" + "\n[1] = Não\n -> ");
+					novaConsulta = input.nextByte();
+					if (novaConsulta == 1) {
+						System.out.println("Programa finalizado!");
 					} else {
+						System.out.print("Qual o número do cadastro você quer consultar: \n -> ");
+						if (input.hasNext()) {
+							numeroCadastro = input.nextByte();
+						}
 
-						arrayValorTotal.add(valorTotal);
-						System.out.println("| FORMA DE PAGAMENTO " + arrayFormaPagamento.get(numeroCadastro));
-						System.out.println("| TOTAL R$" + arrayValorTotal.get(numeroCadastro));
+						System.out.println("+-----------------------------+");
+						System.out.println("| NOME " + arrayNomeCompleto.get(numeroCadastro));
+						System.out.println("| CPF " + arrayCPF.get(numeroCadastro));
+						System.out.println("| RG " + arrayRG.get(numeroCadastro));
+						System.out.println("| QUARTO " + arrayQuarto.get(numeroCadastro));
+						if ((int) (arrayPagamento.get(numeroCadastro)) == 3) {
+							valorTotal *= cotacaoBTC;
+							arrayValorTotal.add(valorTotal);
+							System.out.println("| FORMA DE PAGAMENTO " + arrayFormaPagamento.get(numeroCadastro)
+									+ " | R$1.00 = 0.00002 BTC |");
 
+							System.out.println("| TOTAL " + arrayValorTotal.get(numeroCadastro) + "BTC");
+						} else {
+
+							System.out.println("| FORMA DE PAGAMENTO " + arrayFormaPagamento.get(numeroCadastro));
+							System.out.println("| TOTAL R$" + arrayValorTotal.get(numeroCadastro));
+
+						}
+						System.out.println("+-----------------------------+");
+						System.out.println();
 					}
-					System.out.println("+-----------------------------+");
-					System.out.println();
 				}
 			}
 
-			inputCadastro.close();
-			inputSelecionar.close();
-			input.close();
-
-			break;
-
-		case 2:
-
 		}
+
+		inputCadastro.close();
+		inputSelecionar.close();
+		input.close();
+
 	}
 }
