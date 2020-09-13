@@ -40,20 +40,6 @@ public class SpartanSys {
 			System.out.println("+---------------------+");
 			System.out.println();
 		}
-//
-//		byte qtdCadastros = 0;
-//
-//		System.out.print(" [1] - Cadastrar \n" + " [2] - Consultar cadastros\n -> ");
-//		byte selecionarOpcao = inputSelecionar.nextByte();
-//		while (selecionarOpcao < 1 || selecionarOpcao > 2) {
-//			System.out.println("\nTENTE NOVAMENTE\n");
-//			System.out.print("[1] - Cadastrar \n" + "[2] - Consultar cadastros\n -> ");
-//			selecionarOpcao = inputSelecionar.nextByte();
-//		}
-//		if (qtdCadastros < 1 && selecionarOpcao == 2) {
-//			System.out.print("\nNenhum cadastro foi encontrado, redirecionando para cadastro...");
-//			selecionarOpcao = 1;
-//		}
 
 		// -------------------------------------
 		// VÁRIAVEIS E COISAS ÚTEIS DO CÓDIGO
@@ -116,9 +102,6 @@ public class SpartanSys {
 
 		// -------------------------------------
 
-//		if() {
-
-//		}
 		Scanner inputCadastro = new Scanner(System.in);
 
 		// NOME, CPF, RG, FORMA DE PAGAMENTO
@@ -310,7 +293,6 @@ public class SpartanSys {
 						+ " está sem quartos disponíveis.");
 				cadastrarNovamente = 1;
 			}
-//			inputCadastro.nextLine();
 
 			if (cadastrarNovamente == 1) {
 				while (novaConsulta == 0) {
