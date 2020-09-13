@@ -105,7 +105,7 @@ public class SpartanSys {
 
 		double desconto = 1.0;
 		double valorTotal = 1.0;
-		ArrayList<Double> arrayValorTotal = new ArrayList<Double>();
+		ArrayList arrayValorTotal = new ArrayList();
 
 		double cotacaoBTC = 0.00002;
 		final String hotelNome = "Quality Hotel";
@@ -116,6 +116,9 @@ public class SpartanSys {
 
 		// -------------------------------------
 
+//		if() {
+
+//		}
 		switch (selecionarOpcao) {
 		case 1:
 			Scanner inputCadastro = new Scanner(System.in);
@@ -283,7 +286,6 @@ public class SpartanSys {
 						}
 
 						valorTotal = valorTotal - (valorTotal * desconto);
-//						arrayValorTotal.add(valorTotal);
 
 						System.out.println("Você ficará " + diasHospedado + " dias hospedado no " + hotelNome
 								+ " e pagará um total de R$" + valorTotal);
@@ -304,12 +306,12 @@ public class SpartanSys {
 				}
 				inputCadastro.nextLine();
 
-				System.out.print("Qual o número do cadastro você quer consultar: \n -> ");
-				if (input.hasNext()) {
-					numeroCadastro = input.nextByte();
-				}
-
 				if (cadastrarNovamente == 1) {
+					System.out.print("Qual o número do cadastro você quer consultar: \n -> ");
+					if (input.hasNext()) {
+						numeroCadastro = input.nextByte();
+					}
+
 					System.out.println("+-----------------------------+");
 					System.out.println("| NOME " + arrayNomeCompleto.get(numeroCadastro));
 					System.out.println("| CPF " + arrayCPF.get(numeroCadastro));
@@ -323,9 +325,11 @@ public class SpartanSys {
 
 						System.out.println("| TOTAL " + arrayValorTotal.get(numeroCadastro) + "BTC");
 					} else {
+
 						arrayValorTotal.add(valorTotal);
 						System.out.println("| FORMA DE PAGAMENTO " + arrayFormaPagamento.get(numeroCadastro));
 						System.out.println("| TOTAL R$" + arrayValorTotal.get(numeroCadastro));
+
 					}
 					System.out.println("+-----------------------------+");
 					System.out.println();
