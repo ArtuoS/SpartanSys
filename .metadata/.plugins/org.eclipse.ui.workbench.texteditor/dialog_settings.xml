@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="isQuartoDispo"/>
+		<item key="selection" value="hospedado no"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="hospedado no"/>
+			<item value="arrayValorTotal.add(valorTotal);"/>
+			<item value="valorTotal"/>
+			<item value="arrayPagamento"/>
+			<item value="numeroCadastro"/>
+			<item value="numero"/>
+			<item value="FORMAPa"/>
 			<item value="isquartodispo"/>
 			<item value="&gt; 0"/>
 			<item value="arrayValorTo"/>
@@ -16,13 +23,6 @@
 			<item value="arrayvalortotal"/>
 			<item value="arrayvalortotal.add"/>
 			<item value="arrayValorTotal"/>
-			<item value="valor"/>
-			<item value="cadastrarNovamente"/>
-			<item value="sinto lhe"/>
-			<item value="sinto lhwe"/>
-			<item value="pagamento"/>
-			<item value="quartosTotais"/>
-			<item value="isQuartoDisponivel"/>
 		</list>
 		<list key="replacehistory">
 		</list>
